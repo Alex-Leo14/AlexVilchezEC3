@@ -31,8 +31,8 @@ public class Auth2Config extends AuthorizationServerConfigurerAdapter {
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		
 		clients.inMemory()
-		.withClient("admin")
-		.secret( new BCryptPasswordEncoder().encode("admin")   )
+		.withClient("administrador")
+		.secret( new BCryptPasswordEncoder().encode("123456")   )
 		.authorizedGrantTypes("password","authorization_code","refresh_token","implicit")
 		.scopes("read","whrite","trust")
 		.accessTokenValiditySeconds(60*60*1)

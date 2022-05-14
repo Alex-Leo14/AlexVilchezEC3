@@ -21,8 +21,10 @@ public class Auth2Resource extends ResourceServerConfigurerAdapter{
 	public void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-			.antMatchers("/hospital/v1/*").permitAll()
-			.antMatchers("/clients/v1/*").permitAll()
+			//.antMatchers("/hospital/v1/*").permitAll()
+			//.antMatchers("/clients/v1/*").permitAll()
+			.antMatchers("/hospital/*").access("hasRole('ROLE_USER')")
+			.antMatchers("/clients/*").access("hasRole('ROLE_ADMIN')")
 			.and()
 			.exceptionHandling()
 			.accessDeniedHandler(new OAuth2AccessDeniedHandler());
